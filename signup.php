@@ -80,6 +80,7 @@ if(empty($showform) or $showform == 1)
 
 <html>
 	<head>
+        <script type="text/javascript" src="check.js"></script>
 		<title>Sign Up</title>
 		<meta charset="UTF-8" />
 		<meta name="Designer" content="Piyush Madan">
@@ -88,16 +89,18 @@ if(empty($showform) or $showform == 1)
 		<link rel="stylesheet" type="text/css" href="css/structure.css">
 	</head>
 
-	<body>
+	<body onload="process()">
 		<form method="POST" action="<?php echo $_SERVER['PHP_SELF']; ?>" class="box login">
 			<fieldset class="boxBody">
 	  			<label>Username</label>
-		  		<input type="text" name="username" tabindex="1" value = "<?php if(isset($username)) {echo $username;} ?>"placeholder="e.g. John" required>
+                <input type="text" name="username" tabindex="1" id="username" value = "<?php if(isset($username)) {echo $username;} ?>"placeholder="e.g. John" required>
+
 	  	  		<label>Password</label>
-	  	  		<input type="password" name="password" tabindex="2" required>
+	  	  		<input type="password" name="password" tabindex="1" required>
 	  	  		<label>Re-enter Password</label>
-	  	  		<input type="password" name="repass" tabindex="2" required>
+	  	  		<input type="password" name="repass" tabindex="1" required>
 	  	  		<input type="submit" name="submit" class="btnLogin" value="Send confirmation mail" tabindex="4">
+                <span id="check" class="rLink">
 			</fieldset>
 		</form>
 	</body>
